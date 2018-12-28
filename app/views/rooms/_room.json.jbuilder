@@ -1,0 +1,2 @@
+json.extract! room, :id, :url, :title, :category, :province, :district, :ward, :street, :project_name, :project_investor, :project_size, :address, :area, :price, :price_unit, :description, :front, :entrance, :house_direction, :number_floor, :number_toilet, :number_bedroom, :interior, :seller_name, :seller_address, :seller_phone, :seller_mobile_phone, :seller_email, :media, :post_type, :post_code, :begin_date, :expired_date, :delete_status, :created_at, :updated_at
+json.url room_url(room, format: :json)

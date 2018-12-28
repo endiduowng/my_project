@@ -1,0 +1,43 @@
+@import "bootstrap";
+@import "toastr";
+
+.room-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+.room-price {
+  font-size: 20px;
+  color: red;
+}
+
+.room-info {
+  font-size: 12px;
+}
+
+.room-like {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+}
+
+.img-responsive{
+  width: 450px;
+  max-width: 450px;
+  height: 400px;
+  max-height: 400px;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #ccc;
+}
+
+.custom-list-style{
+  .blue-style {
+    li::before {
+      color: #3acaaa !important;
+    }
+  }
+}

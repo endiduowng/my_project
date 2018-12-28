@@ -1,0 +1,27 @@
+<% rooms[0,7].each do |room| %>
+  <div class="row" style="padding:5px; width: 100%;">
+    <div class="card">
+      <div class="row">
+        <div class="col-4" style="display:block;">
+          <% if room.images.size != 0 %>
+            <%= link_to image_tag(room.images[0].url, class: "card-img-top", style: "width: 240px; height: 180px"), room_path(room) %>
+          <% else %>
+            <%= link_to image_tag(rooms.first.images[0].url, class: "card-img-top", style: "width: 240px; height: 180px"), room_path(room) %>
+          <% end %>
+        </div>
+        <div class="col-8" style="padding: 5 10 10 0;">
+          <div class="room-title"><%= room.title %>
+          </div>
+          <div class="room-price">
+            <strong><%= room.price %></strong>
+          </p>
+          </div>
+          <div class="room-info">
+            <%= room.seller_name %> | <%= room.post_type %> | <%= room.address %>
+          </div>
+          <div class="room-like">Like</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

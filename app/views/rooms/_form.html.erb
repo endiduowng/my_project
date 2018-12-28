@@ -1,0 +1,182 @@
+<%= form_with(model: room, local: true) do |form| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+      <% room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_area :url, id: :room_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :room_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category, id: :room_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :province %>
+    <%= form.text_field :province, id: :room_province %>
+  </div>
+
+  <div class="field">
+    <%= form.label :district %>
+    <%= form.text_field :district, id: :room_district %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ward %>
+    <%= form.text_field :ward, id: :room_ward %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street, id: :room_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_name %>
+    <%= form.text_field :project_name, id: :room_project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_investor %>
+    <%= form.text_field :project_investor, id: :room_project_investor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_size %>
+    <%= form.text_field :project_size, id: :room_project_size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :room_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area, id: :room_area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :room_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_unit %>
+    <%= form.number_field :price_unit, id: :room_price_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :room_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :front %>
+    <%= form.text_field :front, id: :room_front %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entrance %>
+    <%= form.text_field :entrance, id: :room_entrance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :house_direction %>
+    <%= form.text_field :house_direction, id: :room_house_direction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_floor %>
+    <%= form.number_field :number_floor, id: :room_number_floor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_toilet %>
+    <%= form.number_field :number_toilet, id: :room_number_toilet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_bedroom %>
+    <%= form.number_field :number_bedroom, id: :room_number_bedroom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interior %>
+    <%= form.text_area :interior, id: :room_interior %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seller_name %>
+    <%= form.text_field :seller_name, id: :room_seller_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seller_address %>
+    <%= form.text_field :seller_address, id: :room_seller_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seller_phone %>
+    <%= form.text_field :seller_phone, id: :room_seller_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seller_mobile_phone %>
+    <%= form.text_field :seller_mobile_phone, id: :room_seller_mobile_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seller_email %>
+    <%= form.text_field :seller_email, id: :room_seller_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :media %>
+    <%= form.text_field :media, id: :room_media %>
+  </div>
+
+  <div class="field">
+    <%= form.label :post_type %>
+    <%= form.text_field :post_type, id: :room_post_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :post_code %>
+    <%= form.text_field :post_code, id: :room_post_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :begin_date %>
+    <%= form.date_select :begin_date, id: :room_begin_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expired_date %>
+    <%= form.date_select :expired_date, id: :room_expired_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delete_status %>
+    <%= form.number_field :delete_status, id: :room_delete_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

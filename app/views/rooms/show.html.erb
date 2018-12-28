@@ -1,0 +1,279 @@
+<div class="container">
+  <section class="section-tab">
+    <div class="owl-carousel owl-theme">
+      <% @room.images.each do |image| %>
+        <div class="owl-item" style="margin: 10px; max-width: 450px; max-height: 400px;">
+          <%= image_tag image.thumb_url, class: "img-responsive mx-auto d-block" %>
+        </div>
+      <% end %>
+    </div>
+
+    <script>
+    $(document).ready(function(){
+      $('.owl-carousel').owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+        items : 4,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+      })
+    });
+    </script>
+  </section>
+
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-sm-8">
+      <p>
+        <strong style="font-size: 20px;">
+        <%= @room.title %>
+        </strong>
+      </p>
+
+      <p>
+        <div class="row">
+          <div class="col-sm-4">
+            <strong>Post code:</strong>
+            <%= @room.post_code %>
+          </div>
+          <div class="col-sm-4">
+            <strong>Begin date:</strong>
+            <%= @room.begin_date.strftime("%d/%m/%Y") %>
+          </div>
+          <div class="col-sm-4">
+            <strong>Expired date:</strong>
+            <%= @room.expired_date.strftime("%d/%m/%Y") %>
+          </div>
+        </div>
+      </p>
+
+      <p>
+        <div style="font-size: 15px; color: #a6a6a6;">
+          <span>
+            <%= image_tag("address.png", :height=>'20px', :width=>'20px') %>
+          </span>
+          <%= @room.address %>
+        </div>
+      </p>
+
+      <p>
+        <ul class="row" style="list-style: none; padding-left: 0; padding-right: 20px;">
+          <% if @room.area %>
+            <li class="col-sm-2">
+              <%= image_tag("area.png", :height=>'20px', :width=>'20px') %>
+              <span>
+                <%= @room.area %> m
+              </span>
+              <sup>2</sup>
+            </li>
+          <% end %>
+
+          <% if @room.number_floor %>
+            <li class="col-sm-2">
+              <%= image_tag("floor.png", :height=>'20px', :width=>'20px') %>
+              <span>
+                <%= @room.number_floor || 0 %>
+              </span>
+            </li>
+          <% end %>
+
+          <% if @room.number_bedroom %>
+            <li class="col-sm-2">
+              <%= image_tag("bedroom.png", :height=>'20px', :width=>'20px') %>
+              <span>
+                <%= @room.number_bedroom || 0 %>
+              </span>
+            </li>
+          <% end %>
+
+          <% if @room.number_toilet %>
+            <li class="col-sm-2">
+              <%= image_tag("toilet.png", :height=>'20px', :width=>'20px') %>
+              <span>
+                <%= @room.number_toilet || 0 %>
+              </span>
+            </li>
+          <% end %>
+
+          <li class="col-sm-4 ml-auto">
+            <span style="font-size: 24px; color: #e3395e; text-align: right; font-weight: 700; text-transform: none;">
+              <%= @room.price %> tỷ
+            </span>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        <strong>Url:</strong>
+        <%= link_to @room.url, "#{@room.url}" %>
+      </p>
+
+      <p style="font-size: 15px; color: #a6a6a6;">
+        <%= @room.category %> | <%= @room.post_type %>
+      </p>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="col-md-12" style="padding-left: 0;">
+        <span class="header-style" style="position: absolute; width: 5px; height: 14px; top: 19px; background: #3acaaa;"></span>
+        <h2 class="header-title" style="margin-bottom: 18px; padding-top: 15px; font-size: 18px; text-transform: uppercase; position: relative; padding-left: 20px; font-weight: 700;">Mô tả</h2>
+        <%= @room.description %>
+      </div>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="col-md-12" style="padding-left: 0;">
+        <span class="header-style" style="position: absolute; width: 5px; height: 14px; top: 19px; background: #3acaaa;"></span>
+        <h2 class="header-title" style="margin-bottom: 18px; padding-top: 15px; font-size: 18px; text-transform: uppercase; position: relative; padding-left: 20px; font-weight: 700;">Thông tin chi tiết</h2>
+        <div class="row custom-list-style">
+          <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+            <ul class="blue-style">
+              <li>
+                <label>Phòng ngủ:  <label style="font-weight: bold; margin-left: 0px;"> <%= @room.number_bedroom || 0 %> </label>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+            <ul class="blue-style">
+              <li>
+                <label>Số tầng:  <label style="font-weight: bold; margin-left: 0px;"> <%= @room.number_floor || 0 %> </label>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+            <ul class="blue-style">
+              <li>
+                <label>Phòng vệ sinh:  <label style="font-weight: bold; margin-left: 0px;"> <%= @room.number_toilet || 0 %> </label>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+            <ul class="blue-style">
+              <li>
+                <label>Tổng diện tích:  <label style="font-weight: bold; margin-left: 0px;"> <%= @room.area || 0 %> </label>
+                </label> m
+                <sup>2</sup>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+            <ul class="blue-style">
+              <li>
+                <label>Bề rộng mặt trước:  <label style="font-weight: bold; margin-left: 0px;"> <%= @room.front || 0 %> </label>
+                </label> m
+              </li>
+            </ul>
+          </div>
+          <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+            <ul class="blue-style">
+              <li>
+                <label>Bề rộng cổng vào:  <label style="font-weight: bold; margin-left: 0px;"> <%= @room.entrance || 0 %> </label>
+                </label> m
+              </li>
+            </ul>
+          </div>
+          <div class="col-12" style="flex: 0 0 50%; max-width: 50%;">
+            <ul class="blue-style">
+              <li>
+                <label>Nội thất:  <label style="font-weight: bold; margin-left: 0px;"> <%= @room.interior || "Unknown" %> </label>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="col-md-12" style="padding-left: 0;">
+        <span class="header-style" style="position: absolute; width: 5px; height: 14px; top: 19px; background: #3acaaa;"></span>
+        <h2 class="header-title" style="margin-bottom: 18px; padding-top: 15px; font-size: 18px; text-transform: uppercase; position: relative; padding-left: 20px; font-weight: 700;">Vị trí</h2>
+
+        <p>
+          <strong>Province:</strong>
+          <%= @room.province %>
+        </p>
+
+        <p>
+          <strong>District:</strong>
+          <%= @room.district %>
+        </p>
+
+        <p>
+          <strong>Ward:</strong>
+          <%= @room.ward %>
+        </p>
+
+        <p>
+          <strong>Street:</strong>
+          <%= @room.street %>
+        </p>
+      </div>
+
+      <p>
+        <strong>Project name:</strong>
+        <%= @room.project_name %>
+      </p>
+
+      <p>
+        <strong>Project investor:</strong>
+        <%= @room.project_investor %>
+      </p>
+
+      <p>
+        <strong>Project size:</strong>
+        <%= @room.project_size %>
+      </p>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="col-md-12" style="padding-left: 0;">
+        <span class="header-style" style="position: absolute; width: 5px; height: 14px; top: 19px; background: #3acaaa;"></span>
+        <h2 class="header-title" style="margin-bottom: 18px; padding-top: 15px; font-size: 18px; text-transform: uppercase; position: relative; padding-left: 20px; font-weight: 700;">Bình luận</h2>
+      </div>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="col-md-12" style="padding-left: 0;">
+        <span class="header-style" style="position: absolute; width: 5px; height: 14px; top: 19px; background: #3acaaa;"></span>
+        <h2 class="header-title" style="margin-bottom: 18px; padding-top: 15px; font-size: 18px; text-transform: uppercase; position: relative; padding-left: 20px; font-weight: 700;">Có thể bạn sẽ thích</h2>
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-4 pr-2 pb-2">
+          <%= image_tag("default-avatar.png", :height=>'80px', :width=>'80px', :style => 'margin-right: 5px;border-radius: 25%') %>
+        </div>
+        <div class="col-8 pr-0 m-auto" style="font-size: 20px;">
+          <p>
+            <%= @room.seller_name %>
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <strong>Seller address:</strong>
+        <%= @room.seller_address %>
+      </p>
+
+      <p>
+        <strong>Seller phone:</strong>
+        <%= @room.seller_phone %>
+      </p>
+
+      <p>
+        <strong>Seller mobile phone:</strong>
+        <%= @room.seller_mobile_phone %>
+      </p>
+
+      <p>
+        <strong>Seller email:</strong>
+        <%= @room.seller_email %>
+      </p>
+    </div>
+  </div>
+</div>
