@@ -13,4 +13,31 @@
       <p class="email"><%= @user.email %></p>
     </div>
   </div>
+
+  <div class="mr-auto" style="float: left;">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-like-tab" data-toggle="tab" href="#nav-like" role="tab" aria-controls="nav-like" aria-selected="true">Like</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab">
+        <div class="row">
+          <% @liked.each do |like| %>
+            <div class="card col-sm-3" style="margin: 10 10 10 10;">
+              <% if like.room.images.size != 0 %>
+                <%= link_to image_tag(like.room.images[0].url ,class: "card-img-top", width: "240px", height: "180px"), room_path(like.room) %>
+              <% else %>
+                <%= link_to image_tag(like.rooms.first.images[0].url ,class: "card-img-top", width: "240px", height: "180px"), room_path(like.room) %>
+              <% end %>
+              <div class="card-body">
+                <p class="card-text" style="text-overflow: ellipsis; white-space: nowrap;
+                        overflow: hidden;"><%= like.room.title %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

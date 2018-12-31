@@ -23,11 +23,23 @@
 
   <div class="row" style="margin-top: 20px;">
     <div class="col-sm-8">
-      <p>
-        <strong style="font-size: 20px;">
-        <%= @room.title %>
-        </strong>
-      </p>
+      <div class="row">
+        <div class="col-md-10">
+          <p>
+            <strong style="font-size: 20px;">
+            <%= @room.title %>
+            </strong>
+          </p>
+        </div>
+        <div class="col-md-2">
+          <% if user_signed_in? %>
+            <div id="like-icon-room-<%= @room.id.to_s %>">
+              <%= render "like_icon", {is_liked: @room.is_liked(current_user), room: @room} %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
 
       <p>
         <div class="row">

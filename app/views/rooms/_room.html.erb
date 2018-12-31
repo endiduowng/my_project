@@ -19,7 +19,19 @@
           <div class="room-info">
             <%= room.seller_name %> | <%= room.post_type %> | <%= room.address %>
           </div>
-          <div class="room-like">Like</div>
+
+          <p>
+            <div class="room-date row">
+              <div class="col-sm-6">
+                <strong>Ngày đăng tin:</strong>
+                <%= room.begin_date.strftime("%d/%m/%Y") %>
+              </div>
+              <div class="col-sm-6">
+                <strong>Ngày hết hạn:</strong>
+                <%= room.expired_date.strftime("%d/%m/%Y") %>
+              </div>
+            </div>
+          </p>
         </div>
       </div>
     </div>
