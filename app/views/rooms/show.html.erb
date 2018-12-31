@@ -232,6 +232,28 @@
       <div class="col-md-12" style="padding-left: 0;">
         <span class="header-style" style="position: absolute; width: 5px; height: 14px; top: 19px; background: #3acaaa;"></span>
         <h2 class="header-title" style="margin-bottom: 18px; padding-top: 15px; font-size: 18px; text-transform: uppercase; position: relative; padding-left: 20px; font-weight: 700;">Bình luận</h2>
+        <% if user_signed_in? %>
+          <div class="row">
+            <div class="col-1">
+              <% if current_user.image.url.present? %>
+                <%= image_tag(current_user.image.url, :height=>'30px', :width=>'30px', :style => 'margin-right: 5px;border-radius: 50%') %>
+              <% else %>
+                <%= image_tag("default-avatar.png", :height=>'30px', :width=>'30px', :style => 'margin-right: 5px;border-radius: 50%') %>
+              <% end %>
+            </div>
+            <div class="col-11">
+              <div class="row actions" id="comment-form-room-<%= @room.id.to_s %>">
+                <%= render "comment_form", {room: @room}%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="comment-list py-2">
+          <div id="comment-room-<%= @room.id.to_s %>">
+            <%= render "comment_list", {room: @room}%>
+          </div>
+        </div>
       </div>
 
       <div class="dropdown-divider"></div>
