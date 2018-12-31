@@ -1,5 +1,10 @@
+/*
+*= require social-share-button
+*/
+
 @import "bootstrap";
 @import "toastr";
+@import "social-share-button";
 
 .room-title {
   text-overflow: ellipsis;
@@ -124,5 +129,15 @@
         font-size: 16px;
       }
     }
+  }
+}
+
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
   }
 }

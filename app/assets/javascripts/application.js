@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require social-share-button
 //= require react
 //= require react_ujs
 //= require components
