@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @comment = Comment.new
+    @is_liked = @room.is_liked(current_user)
   end
 
   # GET /rooms/new

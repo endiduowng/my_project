@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
   resources :rooms do
+    resources :likes, only: [:create, :destroy], shallow: true
     resources :comments, only: [:index, :create, :destroy], shallow: true
   end
 

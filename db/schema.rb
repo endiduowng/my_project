@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181231035541) do
+ActiveRecord::Schema.define(version: 20181231104330) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20181231035541) do
     t.string "thumb_url", limit: 200
     t.string "url", limit: 200
     t.string "room_id", limit: 45
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_likes_on_room_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -85,4 +94,6 @@ ActiveRecord::Schema.define(version: 20181231035541) do
 
   add_foreign_key "comments", "rooms"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "rooms"
+  add_foreign_key "likes", "users"
 end

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :comments
+  has_many :likes
 
   # nhan dang tai khoan twitter
   def self.from_omniauth(auth)
