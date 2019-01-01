@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
+
+  get "search", to: "search#index"
 end
