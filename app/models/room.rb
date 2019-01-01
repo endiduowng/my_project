@@ -1,4 +1,10 @@
+require "elasticsearch/model"
+
 class Room < ApplicationRecord
+
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   has_many :images
   has_many :comments, -> {order(:created_at => :desc)}
   has_many :likes
