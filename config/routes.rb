@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
     controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
-  resources :rooms do
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
+  resources :rooms, concerns: :paginatable do
     resources :likes, only: [:create, :destroy], shallow: true
     resources :comments, only: [:index, :create, :destroy], shallow: true
   end
