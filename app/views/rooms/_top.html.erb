@@ -1,9 +1,9 @@
 <% rooms[0,4].each do |room| %>
   <div class="card mb-3">
     <% if room.images.size != 0 %>
-      <%= link_to image_tag(room.images[0].url ,class: "card-img-top", width: "240px", height: "180px"), room_path(room) %>
+      <%= link_to image_tag(room.images[0].thumb_url ,class: "card-img-top", width: "240px", height: "180px"), room_path(room) %>
     <% else %>
-      <%= link_to image_tag(rooms.first.images[0].url ,class: "card-img-top", width: "240px", height: "180px"), room_path(room) %>
+      <%= link_to image_tag("https://file4.batdongsan.com.vn/resize/745x510/2017/12/30/20171230092824-094c_wm.jpg" ,class: "card-img-top", width: "240px", height: "180px"), room_path(room) %>
     <% end %>
     <div class="card-body">
       <p class="card-text" style="text-overflow: ellipsis; white-space: nowrap;

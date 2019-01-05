@@ -1,18 +1,18 @@
 <div class="container" style="min-height: 550px;">
-<h1><%= @rooms.size %> results</h1>
+  <h1><%= @rooms.size %> results</h1>
 
-<% if @rooms %>
+  <% if @rooms %>
   <ul>
     <% @rooms.each do |room| %>
-      <li>
-        <h3>
-          <%= link_to room.title, room_path(room.id) %>
-        </h3>
-        <p><%= room.price %></p>
-      </li>
+    <li>
+      <h3>
+        <%= link_to room.title, room_path(room.id) %>
+      </h3>
+      <p><%= room.price %></p>
+    </li>
     <% end %>
   </ul>
-<% else %>
+  <% else %>
   <p>Your search did not match any documents.</p>
-<% end %>
+  <% end %>
 </div>
