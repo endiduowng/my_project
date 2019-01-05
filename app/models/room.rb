@@ -5,6 +5,8 @@ class Room < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  searchkick
+
   has_many :images
   has_many :comments, -> {order(:created_at => :desc)}
   has_many :likes
