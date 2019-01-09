@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181231104330) do
+ActiveRecord::Schema.define(version: 20190109051345) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 20181231104330) do
     t.integer "delete_status", limit: 1, default: 0
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.index ["id"], name: "id_UNIQUE", unique: true
   end
 

@@ -5,6 +5,9 @@ class Room < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  geocoded_by :address
+  after_validation :geocode ,if: :address_changed?
+
   searchkick
 
   has_many :images
