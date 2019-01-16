@@ -1,9 +1,24 @@
 <% room.comments.each do |comment| %>
-  <div class="mb-2">
-    <span><strong><%= comment.user.name %></strong></span>
-    <span><%= comment.content %></span>
-    <% if comment.user == current_user %>
-      <%= link_to "Delete comment", comment_path(comment), method: :delete, remote: true, class: "core-sprite delete-comment hide-text" %>
-    <% end %>
+  <div class="row mb-2">
+    <div class="card w-100">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-10">
+            <%= comment.user.name || comment.user.email %>
+          </div>
+          <% if comment.user == current_user %>
+            <div class="col-1">
+              <%= link_to image_tag("edit.png", width: "20px", height: "20px"), edit_room_comment_path(comment.room, comment), remote: true %>
+            </div>
+            <div class="col-1">
+              <%= link_to image_tag("delete.png", width: "20px", height: "20px"), comment_path(comment), method: :delete, remote: true %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-body">
+          <%= comment.content %>
+      </div>
+    </div>
   </div>
 <% end %>

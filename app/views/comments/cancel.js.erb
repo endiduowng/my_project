@@ -1,0 +1,5 @@
+$('#comment-room-<%= @room.id.to_s %>').
+  html('<%= j render "rooms/comment_list", {room: @room} %>');
+$('#comment-form-room-<%= @room.id.to_s %>')
+  .html('<%= j render "rooms/comment_form", {room: @room, comment: @comment} %>');
+$('#comment-form-room-<%= @room.id.to_s %> .comment-input').val("");

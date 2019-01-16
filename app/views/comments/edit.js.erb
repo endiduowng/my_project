@@ -1,0 +1,2 @@
+$('#comment-form-room-<%= @room.id.to_s %>')
+  .html('<%= j render "comments/edit", {room: @room, comment: @comment} %>');
