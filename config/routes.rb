@@ -12,10 +12,13 @@ Rails.application.routes.draw do
 
   resources :rooms, concerns: :paginatable do
     resources :likes, only: [:create, :destroy], shallow: true
-    resources :comments, only: [:index, :create, :destroy], shallow: true
+    resources :comments do
+      get ':id/cancel', as: 'cancel', action: 'cancel', controller: 'comments'
+    end
   end
 
   resources :users, only: [:show]
+  resources :comments
 
   get "search", to: "search#index"
 end
